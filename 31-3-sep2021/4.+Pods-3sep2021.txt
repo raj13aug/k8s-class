@@ -64,3 +64,9 @@ kubectl delete pod nginx-pod
 
 
 *******************************************************************
+
+#RUN Generator
+
+kubectl run --generator=run-pod/v1 ngnix1 --image=nginx
+
+*************************************************************
