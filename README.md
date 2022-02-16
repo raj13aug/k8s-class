@@ -4,8 +4,8 @@ please refer the google video which mantained by sathish.
 
 ## Contributing
 
-1.Demo: Pods
-2.Demo: ConfigMaps
+1. Demo: Pods
+2. Demo: ConfigMaps
 3.Demo: Secrets
 4.Demo: Replication Controller
 5.Demo: ReplicaSet
