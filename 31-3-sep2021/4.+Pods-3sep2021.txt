@@ -1,8 +1,46 @@
+what is sidecar vs init container in kubernetes?
+
+The difference here is, that your sidecar-containers must run all the time. If one of your not-init-containers exits, kubernetes will restart the whole pod.
+
+
+Multi-container design patterns:
+
+Sidecar pattern
+
+An extra container in your pod to enhance or extend the functionality of the main container.
+
+ex: 
+
+We can create the configuration manager as side car container which will fetch the file from some cloud config service and put the configuration file in filesystem on the same pod and the main application container will pick the file from the shared file system.
+
+https://ishantgaurav.in/2021/07/18/kubernetes-sidecar-container-pattern/
+
+Ambassador pattern
+
+A container that proxy the network connection to the main container.
+
+Adapter pattern
+
+A container that transform output of the main contain.
+
 
 *******************************************************************
+
+Imperative vs. Declarative
+
+The declarative approach is used to create resources from manifest files (usually in YAML) using the kubectl apply command. This is the approach used in a production environment.
+The imperative way is used to manage resources using several distinct commands and do not requires any manifest files.
+
+Imperative 
+
+kubectl run --generator=run-pod/v1 www-1 --image=nginx:1.16
+
+Declarative
+
 1. https://www.katacoda.com/courses/kubernetes/kubectl-run-containers
 
 # nginx-pod.yaml
+
 apiVersion: v1
 kind: Pod
 metadata:
@@ -21,9 +59,12 @@ spec:
 
 # Create and display PODs
 kubectl create -f nginx-pod.yaml
+
 kubectl get pod
+
 kubectl get pod -o wide
 kubectl get pod nginx-pod -o yaml
+
 kubectl describe pod nginx-pod
 
 
@@ -63,10 +104,3 @@ kubectl delete svc nginx-pod
 kubectl delete pod nginx-pod
 
 
-*******************************************************************
-
-#RUN Generator
-
-kubectl run --generator=run-pod/v1 ngnix1 --image=nginx
-
-*************************************************************
