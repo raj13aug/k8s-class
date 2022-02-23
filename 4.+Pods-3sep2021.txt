@@ -31,6 +31,9 @@ Imperative vs. Declarative
 The declarative approach is used to create resources from manifest files (usually in YAML) using the kubectl apply command. This is the approach used in a production environment.
 The imperative way is used to manage resources using several distinct commands and do not requires any manifest files.
 
+Multi-container 
+https://www.mirantis.com/blog/multi-container-pods-and-container-communication-in-kubernetes/
+
 Imperative 
 
 kubectl run --generator=run-pod/v1 www-1 --image=nginx:1.16
